@@ -2,7 +2,7 @@
 def no_c(my_string):
     new_string = ""
     if my_string:
-        for letter in my_string:
-            if letter not in "Cc":
-                new_string += letter
+        for char in my_string:
+            if char not in "cC":
+                new_string += char
     return new_string
