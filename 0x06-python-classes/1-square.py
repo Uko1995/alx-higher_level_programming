@@ -1,11 +1,15 @@
 #!/usr/bin/python3
 class Square:
-    '''
-    a square class is created
-    '''
+    """Class Square that has attributes. Instantiation with size
+
+    Attributes:
+        size (int): The size of the square
+    """
+
     def __init__(self, size):
+        """The __init__ method for Square class
+
+        Args:
+            size: (:obj: 'int'): A private instance size
+        """
         self.__size = size
-    '''
-    the class has been initialized with a private instance attribute
-    __size(int): size of the square
-    '''
