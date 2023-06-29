@@ -4,3 +4,6 @@ class Square:
     creates a square class object
     '''
     pass
+    '''
+    the class does nothing
+    '''
