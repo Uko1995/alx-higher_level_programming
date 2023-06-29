@@ -1,4 +1,10 @@
 #!/usr/bin/python3
+
+# -*- coding: utf-8 -*-
+'''
+@author: Uko Uwatt
+'''
+
 class Square:
     """Class Square that has attributes. Instantiation with size
 
