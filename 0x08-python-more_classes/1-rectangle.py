@@ -56,7 +56,7 @@ class Rectangle:
     def width(self):
         '''
         function checks width
-        
+
         Returns: width of the rectangle
         '''
         return self.__width
