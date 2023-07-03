@@ -48,8 +48,7 @@ class Rectangle:
         '''
         function returns perimeter of rectangle
         '''
-        perimeter = (self.__height + self.__width) * 2
         if self.__width == 0 or self.__height == 0:
-            perimeter = 0
+            return 0
         else:
-            return perimeter
+            return 2 * (self.__width + self.__height)
