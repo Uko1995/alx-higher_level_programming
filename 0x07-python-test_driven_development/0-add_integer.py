@@ -3,6 +3,7 @@
 module that includes function for adding integers
 '''
 
+
 def add_integer(a, b=98):
     '''
     function returns the addition of 2 integers
