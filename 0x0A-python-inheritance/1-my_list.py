@@ -12,5 +12,6 @@ class MyList(list):
         '''
         function prints sorted list of object
         '''
-        sorted_list = sorted(self)
-        print(sorted_list)
+        lst = self[:]
+        lst.sort()
+        print(lst)
