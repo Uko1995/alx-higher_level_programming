@@ -1,0 +1,17 @@
+Test module for task 7
+
+>>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
+
+>>> base = BaseGeometry()
+
+>>> base.integer_validator("age", 12)
+
+>>> base.integer_validator("age", -12)
+Traceback (most recent call last):
+...
+ValueError: age must be greater than 0
+
+>>> base.integer_validator("point", "12")
+Traceback (most recent call last):
+...
+TypeError: point must be an integer
