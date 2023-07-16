@@ -10,21 +10,15 @@ class Rectangle(Base):
     '''
     rectangle class that inherits from Base class
     '''
-
-    def validate(self, name, value):
+    def __init__(self, width, height, x=0, y=0, id=None):
         '''
-        validates the private attributes
-        self.__width
-        self.__height
-        self.__x
-        self.__y
+        class constructor
         '''
-        if not isinstance(value, int):
-            raise TypeError("{} must be an integer".format(name))
-        elif (name == 'width' or name == 'height') and value <= 0:
-            raise ValueError("{} must be > 0".format(name))
-        elif (name == 'x' or name ==  'y') and value < 0:
-            raise ValueError("{} must be >= 0".format(name))
+        super().__init__(id)
+        self.__width = width
+        self.__height = height
+        self.__x = x
+        self.__y = y
 
     @property
     def width(self):
@@ -38,7 +32,10 @@ class Rectangle(Base):
         '''
         sets width
         '''
-        self.validate("width", value)
+        if not isinstance(value, int):
+            raise TypeError("width must be an integer")
+        elif value <= 0:
+            raise ValueError("width must be > 0")
         self.__width = value
 
     @property
@@ -53,7 +50,10 @@ class Rectangle(Base):
         '''
         sets height
         '''
-        self.validate("height", value)
+        if not isinstance(value, int):
+            raise TypeError("height must be an integer")
+        elif value <= 0:
+            raise ValueError("height must be > 0")
         self.__height = value
 
     @property
@@ -68,7 +68,10 @@ class Rectangle(Base):
         '''
         sets x
         '''
-        self.validate("x", value)
+        if not isinstance(value, int):
+            raise TypeError("x must be an integer")
+        elif value < 0:
+            raise ValueError("x must be >= 0")
         self.__x = value
 
     @property
@@ -83,19 +86,8 @@ class Rectangle(Base):
         '''
         sets y
         '''
-        self.validate("y", value)
+        if not isinstance(value, int):
+            raise TypeError("y must be an integer")
+        elif value < 0:
+            raise ValueError("y must be >= 0")
         self.__y = value
-
-    def __init__(self, width, height, x=0, y=0, id=None):
-        '''
-        class constructor
-        '''
-        super().__init__(id)
-        self.validate("width", width)
-        self.__width = width
-        self.validate("height", height)
-        self.__height = height
-        self.validate("x", x)
-        self.__x = x
-        self.validate("y", y)
-        self.__y = y
