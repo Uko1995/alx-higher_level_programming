@@ -91,13 +91,9 @@ class Rectangle(Base):
         class constructor
         '''
         super().__init__(id)
-        #self.validate("width", width)
         self.__width = width
-        #self.validate("height", height)
         self.__height = height
-        #self.validate("x", x)
         self.__x = x
-        #self.validate("y", y)
         self.__y = y
 
     def area(self):
