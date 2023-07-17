@@ -122,7 +122,7 @@ class Rectangle(Base):
             self.__height = height
 
         if not isinstance(x, int):
-            raise TypeError("x ust be an integer")
+            raise TypeError("x must be an integer")
         elif x < 0:
             raise ValueError("x must be >= 0")
         else:
