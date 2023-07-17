@@ -27,14 +27,14 @@ class Rectangle(Base):
             raise ValueError("{} must be >= 0".format(name))
 
     @property
-    def get_width(self):
+    def width(self):
         '''
         gets the width attribute
         '''
         return self.__width
 
     @width.setter
-    def set_width(self, value):
+    def width(self, value):
         '''
         sets width
         '''
@@ -42,14 +42,14 @@ class Rectangle(Base):
         self.__width = value
 
     @property
-    def get_height(self):
+    def height(self):
         '''
         gets height
         '''
         return self.__height
 
     @height.setter
-    def set_height(self, value):
+    def height(self, value):
         '''
         sets height
         '''
@@ -57,14 +57,14 @@ class Rectangle(Base):
         self.__height = value
 
     @property
-    def get_x(self):
+    def x(self):
         '''
         gets x
         '''
         return self.__x
 
     @x.setter
-    def set_x(self, value):
+    def x(self, value):
         '''
         sets x
         '''
@@ -72,14 +72,14 @@ class Rectangle(Base):
         self.__x = value
 
     @property
-    def get_y(self):
+    def y(self):
         '''
         gets y
         '''
         return self.__y
 
     @y.setter
-    def set_y(self, value):
+    def y(self, value):
         '''
         sets y
         '''
@@ -91,13 +91,13 @@ class Rectangle(Base):
         class constructor
         '''
         super().__init__(id)
-        self.validate("width", width)
+        #self.validate("width", width)
         self.__width = width
-        self.validate("height", height)
+        #self.validate("height", height)
         self.__height = height
-        self.validate("x", x)
+        #self.validate("x", x)
         self.__x = x
-        self.validate("y", y)
+        #self.validate("y", y)
         self.__y = y
 
     def area(self):
