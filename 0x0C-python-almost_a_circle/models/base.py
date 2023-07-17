@@ -40,7 +40,8 @@ class Base:
             list_objs = []
         filename = cls.__name__ + ".json"
         with open(filename, 'w', encoding="utf-8") as obj:
-            save = cls.to_json_string([obj.to_dictionary() for obj in list_objs])
+            save = cls.to_json_string([obj.to_dictionary()
+                                       for obj in list_objs])
             obj.write(save)
 
     @staticmethod
@@ -82,5 +83,4 @@ class Base:
                 instance = [cls(**i) for i in lsts]
                 return instance
         except FileNotFoundError:
-                return []
-
+            return []
