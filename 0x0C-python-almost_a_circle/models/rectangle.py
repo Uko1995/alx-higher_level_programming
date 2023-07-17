@@ -116,8 +116,9 @@ class Rectangle(Base):
         '''
          returns [Rectangle] (<id>) <x>/<y> - <width>/<height>
          '''
-        return "[Rectangle] " + "(" + str(self.id) + ")" + " " + str(self.__x) + "/"\
-            + str(self.__y) + " - " + str(self.__width) + "/" + str(self.__height)
+        return "[Rectangle] " + "(" + str(self.id) + ")" + " " + str(self.__x)\
+            + "/" + str(self.__y) + " - " + str(self.__width)\
+            + "/" + str(self.__height)
 
     def update(self, *args, **kwargs):
         '''
@@ -153,6 +154,6 @@ class Rectangle(Base):
         '''
         returns the dictionary representation of a Rectangle
         '''
-        dic = {"id": self.id, "width": self.__width, "height": self.__height,\
-            "x": self.__x, "y": self.__y}
+        dic = {"id": self.id, "width": self.__width, "height": self.__height,
+               "x": self.__x, "y": self.__y}
         return dic
