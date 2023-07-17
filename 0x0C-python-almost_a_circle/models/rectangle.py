@@ -27,14 +27,14 @@ class Rectangle(Base):
             raise ValueError("{} must be >= 0".format(name))
 
     @property
-    def width(self):
+    def get_width(self):
         '''
         gets the width attribute
         '''
         return self.__width
 
     @width.setter
-    def width(self, value):
+    def set_width(self, value):
         '''
         sets width
         '''
@@ -42,14 +42,14 @@ class Rectangle(Base):
         self.__width = value
 
     @property
-    def height(self):
+    def get_height(self):
         '''
         gets height
         '''
         return self.__height
 
     @height.setter
-    def height(self, value):
+    def set_height(self, value):
         '''
         sets height
         '''
@@ -57,14 +57,14 @@ class Rectangle(Base):
         self.__height = value
 
     @property
-    def x(self):
+    def get_x(self):
         '''
         gets x
         '''
         return self.__x
 
     @x.setter
-    def x(self, value):
+    def set_x(self, value):
         '''
         sets x
         '''
@@ -72,14 +72,14 @@ class Rectangle(Base):
         self.__x = value
 
     @property
-    def y(self):
+    def get_y(self):
         '''
         gets y
         '''
         return self.__y
 
     @y.setter
-    def y(self, value):
+    def set_y(self, value):
         '''
         sets y
         '''

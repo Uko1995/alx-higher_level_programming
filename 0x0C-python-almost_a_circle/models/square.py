@@ -24,14 +24,14 @@ class Square(Rectangle):
             + str(self.y) + " - " + str(self.width)
 
     @property
-    def size(self):
+    def get_size(self):
         '''
         gets the size attribute
         '''
         return self.width
 
     @size.setter
-    def size(self, value):
+    def set_size(self, value):
         '''
         sets the size
         '''
