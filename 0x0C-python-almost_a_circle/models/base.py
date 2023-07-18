@@ -61,14 +61,13 @@ class Base:
 
         '''
         if cls.__name__ == "Rectangle":
-            obj = cls(id=0, width=1, height=1, x=0, y=0)
+            obj = cls(1,1)
         elif cls.__name__ == "Square":
-            obj = cls(id=0, size=1, x=0, y=0)
-        else:
-            obj = cls()
+            obj = cls(1)
 
-        obj.update(**dictionary)
-        return obj
+        if obj:
+            obj.update(**dictionary)
+            return obj
 
     @classmethod
     def load_from_file(cls):
