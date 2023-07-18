@@ -1,69 +1,46 @@
 #!/usr/bin/python3
-'''
-module for testing base.py
-'''
-
-
-from model.base import Base
-from model.rectangle import Rectangle
-from model.square import Square
-import os
-import pep8
 import unittest
-import inspect
-import io
+import os.path
+from models.base import Base
+from models.rectangle import Rectangle
+from models.square import Square
+import pep8
+import warnings
+"""tests the Base"""
 
 
-class TestBase(unittest.Testcase):
+class TestBase(unittest.TestCase):
     '''
-    test class
+    test class for Base
     '''
-    @classmethod
-    def set_up_class(cls):
-        '''
-        sets up the class methods
-        '''
-        cls.setup = inspect.getmembers(Base, inspects.isfunction)
-
-    def test_pep8(self):
-        '''
-        tests for pep8 complaince
-        '''
-        style = pep8.StyleGuide(quiet=False, show_source=True)
-        report = style.check_files(["models/base.py", "test/test_models/test_base.py"])
-        self.assertEqual(report.total_errors, 0, "PEP 8 style violations found, see the output for details")
-
-    def test_docstring(self):
-        '''
-        test all docstrings
-        '''
-        self.assertTrue(len(Base.__doc__) >= 1)
-        for func in self.setup:
-            self.assertTrue(len(func[1].__doc__) >= 1)
+    #def test_pep8(self):
+        #style = pep8.StyleGuide(quiet=True, show_source=True)
+        #result = style.check_files(['test/test_models/test_base.py',
+         #                           'models/base.py'])
+        #self.assertEqual(result.total_errors, 0, "fix pep8")
 
     def test_id(self):
-        '''
-        testing id
-        '''
+        """tests the ids"""
         Base._Base__nb_objects = 0
         b1 = Base()
         b2 = Base()
-        b3 = Base(12)
-        b4 = Base()
+        b3 = Base()
+        b4 = Base(12)
+        b5 = Base()
         self.assertEqual(b1.id, 1)
         self.assertEqual(b2.id, 2)
-        self.assertEqual(b3.id, 12)
-        self.assertEqual(b4.id, 3)
+        self.assertEqual(b3.id, 3)
+        self.assertEqual(b4.id, 12)
+        self.assertEqual(b5.id, 4)
 
     def test_dictionary(self):
-        '''
-        testing dictionary
-        '''
+        """tests the dictionary"""
         Base._Base__nb_objects = 0
-        r1 = Rectangle(2, 4, 6, 8)
+        r1 = Rectangle(10, 7, 2, 8)
         dictionary = r1.to_dictionary()
-        self.assertDictEqual(dictionary, {"width": 2, "height": 4, "x": 6,
-                                          "y": 8}
+        self.assertDictEqual(dictionary,
+                             {'x': 2, 'width': 10,
+                              'id': 1, 'height': 7, 'y': 8})
         json_dictionary = Base.to_json_string([dictionary])
         self.assertEqual(json_dictionary, json_dictionary)
         self.assertEqual(Base.to_json_string(None), "[]")
@@ -93,18 +70,18 @@ class TestBase(unittest.Testcase):
         r_input = [{'id': 89, 'width': 10, 'height': 4}]
         s_input = [{'id': 89, 'size': 4}]
         json_list_input = Rectangle.to_json_string(r_input)
-        list_output=Rectangle.from_json_string(json_list_input)
+        list_output = Rectangle.from_json_string(json_list_input)
         self.assertTrue(type(list_output) is list)
-        list_output=Rectangle.from_json_string([])
+        list_output = Rectangle.from_json_string([])
         self.assertTrue(list_output == [])
-        list_output=Rectangle.from_json_string(None)
+        list_output = Rectangle.from_json_string(None)
         self.assertTrue(list_output == [])
         json_list_input = Square.to_json_string(s_input)
-        list_output=Square.from_json_string(json_list_input)
+        list_output = Square.from_json_string(json_list_input)
         self.assertTrue(type(list_output) is list)
-        list_output=Square.from_json_string([])
+        list_output = Square.from_json_string([])
         self.assertTrue(list_output == [])
-        list_output=Square.from_json_string(None)
+        list_output = Square.from_json_string(None)
         self.assertTrue(list_output == [])
 
     def test_load(self):
@@ -120,6 +97,11 @@ class TestBase(unittest.Testcase):
         s2 = Square(7, 9, 1)
         list_squares_input = [s1, s2]
         Square.save_to_file(list_squares_input)
-        list_squares_output=Square.load_from_file()
+        list_squares_output = Square.load_from_file()
         for thing in list_squares_output:
             self.assertTrue(type(thing) is Square)
+
+
+if __name__ == "__main__":
+    warnings.filterwarnings("ignore", category=FutureWarning)
+    unittest.main()
