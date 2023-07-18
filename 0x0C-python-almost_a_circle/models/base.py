@@ -74,11 +74,13 @@ class Base:
         '''
         returns a list of instances
         '''
-        if not os.path.isfile(cls.__name__ + '.json'):
-            return []
-        else:
+        try:
             filename = cls.__name__ + ".json"
             with open(filename, "r", encoding="utf-8") as b:
                 lsts = cls.from_json_string(b.read())
                 instance = [cls(**i) for i in lsts]
                 return instance
+        except FileNotFoundError:
+            return []
+        except Exception:
+            return []
