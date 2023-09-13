@@ -9,9 +9,9 @@ class Rectangle {
     }
   }
 
-  print() {
+  print () {
     // print the rectangle using the letter "X"
-		for (let i = 0; i < this.height; i++) {
+    for (let i = 0; i < this.height; i++) {
       console.log('X'.repeat(this.width));
     }
   }
