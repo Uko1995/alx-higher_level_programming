@@ -6,13 +6,13 @@ import sys
 
 if __name__ == "__main__":
     username = sys.argv[1]
-    passwrd = sys.argv[2]
-    db = sys.argv[3]
+    password = sys.argv[2]
+    database_name = sys.argv[3]
 
     if len(sys.argv) == 4:
         with MySQLdb.connect(host="localhost",
                              user=username,
-                             password=passwrd, database=db,
+                             password=password, database=database_name,
                              port=3306) as database:
 
             cursor = database.cursor()
