@@ -20,7 +20,7 @@ if __name__ == "__main__":
 
             cursor = database.cursor()
 
-            query = "SELECT cities.id, cities.name FROM cities \
+            query = "SELECT cities.name FROM cities \
                 INNER JOIN states ON cities.state_id = states.id WHERE \
                 states.name = %s ORDER BY cities.id"
             cursor.execute\
@@ -29,4 +29,4 @@ if __name__ == "__main__":
             states = cursor.fetchall()
 
             for state in states:
-                print(cities.name, end="")
+                print(state, end="")
