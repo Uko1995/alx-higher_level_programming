@@ -11,5 +11,5 @@ if __name__ == "__main__":
         url = fetched.decode("utf-8")
         try:
             print(fetched)
-        except urllib.error.HTTPError as e:
-            print(e.code)
+        except urllib.error.URLError as e:
+            print(f"Status code: {e.code}")
