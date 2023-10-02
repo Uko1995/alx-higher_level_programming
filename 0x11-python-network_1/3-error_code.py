@@ -4,12 +4,13 @@ Python script that fetches https://alx-intranet.hbtn.io/status
 '''
 
 import urllib.request
+from sys import argv
+import urllib.error
 
 if __name__ == "__main__":
-    with urllib.request.urlopen('https://alx-intranet.hbtn.io/status') as site:
-        fetched = site.read()
-        url = fetched.decode("utf-8")
-        try:
+    try:
+        with urllib.request.urlopen(argv[1]) as site:
+            fetched = site.read().decode("utf-8")
             print(fetched)
-        except urllib.error.URLError as e:
-            print(f"Status code: {e.code}")
+    except urllib.error.HTTPError as e:
+        print(f"Status code: {e.code}")

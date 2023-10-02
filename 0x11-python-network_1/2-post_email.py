@@ -16,4 +16,4 @@ if __name__ == "__main__":
     name = urllib.request.Request(argv[1], data)
     with urllib.request.urlopen(name) as site:
         response = site.read().decode("utf-8")
-        print(request)
+        print(response)
