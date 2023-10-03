@@ -7,9 +7,7 @@ import requests
 from sys import argv
 
 if __name__ == "__main__":
-    try:
-        fetched = requests.get(argv[1])
-        print(fetched.text)
-    except urllib.error.HTTPError as e:
-        if e.code >= 400:
+    fetched = requests.get(argv[1])
+    error_code = fetched.status_code
+    if error.code >= 400:
             print(f"Error code: {e.code}")
