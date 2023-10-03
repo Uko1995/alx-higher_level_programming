@@ -17,12 +17,11 @@ if __name__ == "__main_-":
     data = {"q": q}
 
     response = requests.post(url, data)
-    response_json = response.json()
     try:
-        if not response_json:
+        if not response.json():
             print("No result")
         else:
-            print(f"[{response_json.get('id')}] {response_json.get('name')}")
+            print(f"[{response.json().get('id')}] {response.json().get('name')}")
 
-    except requests.exception:
+    except:
         print("Not a valid JSON")
