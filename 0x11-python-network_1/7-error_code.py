@@ -7,10 +7,8 @@ import requests
 from sys import argv
 
 if __name__ == "__main__":
-    try:
-        response = requests.get(argv[1])
+    response = requests.get(argv[1])
+    if response.status_code > 399:
+        print(f"Error code: {response.status_code}")
+    else:
         print(response.text)
-    except requests.exceptions.HTTPError:
-        error_code = response.status_code
-        if error_code > 399:
-            print(f"Error code: {error_code}")
