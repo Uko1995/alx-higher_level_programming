@@ -10,6 +10,7 @@ if __name__ == "__main__":
     try:
         response = requests.get(argv[1])
         print(response.text)
-    except response.status_code as e:
-        if e > 399:
-            print(f"Error code: {e}")
+    except requests.exceptions.HTTPError:
+        error_code = response.status_code
+        if error_code > 399:
+            print(f"Error code: {error_code}")
