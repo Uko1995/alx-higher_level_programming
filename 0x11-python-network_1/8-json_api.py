@@ -18,10 +18,11 @@ if __name__ == "__main_-":
 
     response = requests.post(url, data)
     try:
-        if not response.json():
+        obj = response.json()
+        if not obj:
             print("No result")
         else:
-            print(f"[{response.json().get('id')}] {response.json().get('name')}")
+            print(f"[{obj['id']}] {obj['name']}")
 
-    except:
+    except Exception as invalid:
         print("Not a valid JSON")
