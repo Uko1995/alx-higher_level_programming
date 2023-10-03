@@ -18,9 +18,5 @@ if __name__ == "__main_-":
 
     response = requests.post(url, data)
     response_json = response.json()
-    if len(response_json) == 0:
-        print("No result")
-    elif not response_json:
-        print("Not a valid JSON")
-    else:
-        print(f"[{response_json['id']}] {response_json['name']}")
+    if response_json and len(response_json) > 0:
+        print(f"[{response_json.get('id')}] {response_json.get('name')}")
