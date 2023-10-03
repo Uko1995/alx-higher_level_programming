@@ -13,4 +13,4 @@ if __name__ == "__main__":
             fetched = site.read().decode("utf-8")
             print(fetched)
     except urllib.error.HTTPError as e:
-        print(f"Status code: {e.code}")
+        print(f"Error code: {e.code}")
