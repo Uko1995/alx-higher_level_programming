@@ -1,0 +1,2 @@
+time complexity of the peak function
+O(n)
