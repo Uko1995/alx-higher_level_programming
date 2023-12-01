@@ -7,5 +7,6 @@ def find_peak(list_of_integers):
     if (list_of_integers is None) or (len(list_of_integers) == 0):
         maximum = None
     else:
-        maximum = max(list_of_integers)
+        sort = sorted(list_of_integers)
+        maximum = sort[-1]
     return maximum
