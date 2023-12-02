@@ -5,11 +5,13 @@ and uses the GitHub API to display your id
 '''
 
 import requests
+from requests.auth import HTTPBasicAuth
 from sys import argv
 
 if __name__ == "__main__":
-    data = {"username": argv[1], "password": argv[2]}
+    username = argv[1] 
+    password = argv[2]
     url = "https://api.github.com/auth"
-    response = requests.get(url, data)
+    response = requests.get(url, auth=HTTPBasicAuth(username, password))
     ids = response.json().get('id')
     print(ids)
