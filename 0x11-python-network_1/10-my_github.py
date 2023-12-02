@@ -8,8 +8,8 @@ import requests
 from sys import argv
 
 if __name__ == "__main__":
-    data = {"username": argv[1], "pasword": argv[2]}
-    url = "https://api.github.com/authorizations"
+    data = {"username": argv[1], "password": argv[2]}
+    url = "https://api.github.com/auth"
     response = requests.get(url, data)
     ids = response.json().get('id')
     print(ids)
