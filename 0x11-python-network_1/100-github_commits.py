@@ -12,6 +12,6 @@ if __name__ == "__main__":
     objects = response.json()
     for i, obj in enumerate(objects):
         print(f"{obj.get('sha')}: \
-              {obj.get('commit').get('author').get('name')}")
+            {obj.get('commit').get('author').get('name')}")
         if i == 9:
             break
