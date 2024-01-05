@@ -1,19 +1,28 @@
 #!/usr/bin/node
 
 const request = require('request');
-const address = process.argv[2];
 
-request(address, function (error, response, body) {
+const url = 'https://jsonplaceholder.typicode.com/todos';
+
+request.get(url, (error, response, body) => {
   if (error) {
-    console.log(error);
-  } else {
-    let results = {};
-    for (let td of JSON.parse(body)) {
-      if (td.completed) {
-        if (results[td['userId']] === undefined) { results[td['userId']] = 0; }
-        results[td['userId']] += 1;
-      }
-    }
-    console.log(results);
+    console.error(error);
+    return;
   }
+
+  const tasks = JSON.parse(body);
+
+  const completedTasks = tasks.filter(task => task.completed === true);
+  const results = completedTasks.reduce((acc, task) => {
+    const userId = task.userId;
+    if (acc[userId]) {
+      acc[userId]++;
+    } else {
+      acc[userId] = 1;
+    }
+    return acc;
+  }, {});
+
+  console.log(results);
 });
+
