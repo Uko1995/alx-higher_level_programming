@@ -14,4 +14,5 @@ request.get(url, (error, response, body) => {
     console.log('Failed to fetch data');
   }
   const movie = JSON.parse(body);
-  console.log(`${movie.title}`); });
+  console.log(`${movie.title}`);
+});
